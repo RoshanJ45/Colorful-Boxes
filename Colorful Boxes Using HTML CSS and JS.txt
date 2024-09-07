@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/lottie2.min.js"></script>
+    <style>
+        body,html {
+            background-color: #ddd;
+            margin: 0px;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .grid {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: 100%;
+            grid-template-rows: 100%;
+            grid-gap: 0.5%;
+            background-color: #fff;
+        }
+        .box {
+            background-color: #444;
+            color: #fff;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="box" id="phonological"></div>
+    </div>
+    <script>
+        var animations = ['phonological'];
+        var i, len = animations.length;
+        for (i = 0; i < len; i += 1) {
+            var anim;
+            var elem = document.getElementById(animations[i])
+            var animData = {
+                container: elem,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                rendererSettings: {
+                    progressiveLoad: true,
+                    preserveAspectRatio: 'xMidYMid meet'
+                },
+                path: 'https://labs.nearpod.com/bodymovin/demo/al_boardman/articulation/' + animations[i] + '.json'
+            };
+            anim = lottie.loadAnimation(animData);
+            anim.setSubframe(false);
+        }
+    </script>
+</body>
+</html>
